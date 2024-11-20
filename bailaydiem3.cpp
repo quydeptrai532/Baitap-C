@@ -37,7 +37,7 @@ int main() {
 
         int a[100][100], c[100][100];
         nhapMaTran(a, n, m); // Nh?p ma tr?n A
-        tinhTich(a, n, m, c); // Tính tích c?a A v?i A chuy?n v?
+        tinhTich(a, n, m, c); // TÃ­nh tÃ­ch c?a A v?i A chuy?n v?
 
         printf("Test %d:\n", test);
         inMaTran(c, n); // In ma tr?n k?t qu?
