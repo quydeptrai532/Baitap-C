@@ -2,31 +2,31 @@
 #include <string.h>
 
 typedef struct {
-    int ma;            // M„ thÌ sinh (t? d?ng tang)
-    char ten[101];     // TÍn thÌ sinh
-    char ngaySinh[11]; // Ng‡y sinh
-    float diem1, diem2, diem3; // –i?m 3 mÙn thi
+    int ma;            // M√£ th√≠ sinh (t? d?ng tang)
+    char ten[101];     // T√™n th√≠ sinh
+    char ngaySinh[11]; // Ng√†y sinh
+    float diem1, diem2, diem3; // √êi?m 3 m√¥n thi
     float tongDiem;    // T?ng di?m
 } ThiSinh;
 
-// H‡m nh?p thÙng tin thÌ sinh
+// H√†m nh?p th√¥ng tin th√≠ sinh
 void nhapThiSinh(ThiSinh *ts, int ma) {
-    ts->ma = ma; // G·n m„ thÌ sinh
-    getchar();   // –?c b? k˝ t? xu?ng dÚng th?a
+    ts->ma = ma; // G√°n m√£ th√≠ sinh
+    getchar();   // √ê?c b? k√Ω t? xu?ng d√≤ng th?a
     fgets(ts->ten, 101, stdin);
-    ts->ten[strcspn(ts->ten, "\n")] = '\0'; // XÛa k˝ t? '\n'
+    ts->ten[strcspn(ts->ten, "\n")] = '\0'; // X√≥a k√Ω t? '\n'
     fgets(ts->ngaySinh, 11, stdin);
-    ts->ngaySinh[strcspn(ts->ngaySinh, "\n")] = '\0'; // XÛa k˝ t? '\n'
+    ts->ngaySinh[strcspn(ts->ngaySinh, "\n")] = '\0'; // X√≥a k√Ω t? '\n'
     scanf("%f %f %f", &ts->diem1, &ts->diem2, &ts->diem3);
     ts->tongDiem = ts->diem1 + ts->diem2 + ts->diem3;
 }
 
-// H‡m in thÙng tin thÌ sinh
+// H√†m in th√¥ng tin th√≠ sinh
 void inThiSinh(ThiSinh ts) {
     printf("%d %s %s %.1f\n", ts.ma, ts.ten, ts.ngaySinh, ts.tongDiem);
 }
 
-// H‡m s?p x?p danh s·ch thÌ sinh theo m„ tang d?n
+// H√†m s?p x?p danh s√°ch th√≠ sinh theo m√£ tang d?n
 void sapXepTheoMa(ThiSinh ds[], int n) {
     for (int i = 0; i < n - 1; i++) {
         for (int j = i + 1; j < n; j++) {
@@ -39,7 +39,7 @@ void sapXepTheoMa(ThiSinh ds[], int n) {
     }
 }
 
-// H‡m tÏm th? khoa v‡ in ra danh s·ch th? khoa
+// H√†m t√¨m th? khoa v√† in ra danh s√°ch th? khoa
 void timThuKhoa(ThiSinh ds[], int n) {
     float diemCaoNhat = ds[0].tongDiem;
     for (int i = 1; i < n; i++) {
@@ -56,18 +56,18 @@ void timThuKhoa(ThiSinh ds[], int n) {
 
 int main() {
     int n;
-    scanf("%d", &n); // Nh?p s? lu?ng thÌ sinh
+    scanf("%d", &n); // Nh?p s? lu?ng th√≠ sinh
     ThiSinh ds[n];
 
-    // Nh?p thÙng tin cho t?ng thÌ sinh
+    // Nh?p th√¥ng tin cho t?ng th√≠ sinh
     for (int i = 0; i < n; i++) {
-        nhapThiSinh(&ds[i], i + 1); // M„ thÌ sinh t? d?ng tang t? 1
+        nhapThiSinh(&ds[i], i + 1); // M√£ th√≠ sinh t? d?ng tang t? 1
     }
 
-    // S?p x?p danh s·ch theo m„ tang d?n
+    // S?p x?p danh s√°ch theo m√£ tang d?n
     sapXepTheoMa(ds, n);
 
-    // TÏm v‡ in danh s·ch th? khoa
+    // T√¨m v√† in danh s√°ch th? khoa
     timThuKhoa(ds, n);
 
     return 0;
